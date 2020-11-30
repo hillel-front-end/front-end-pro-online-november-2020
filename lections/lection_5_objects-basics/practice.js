@@ -1,6 +1,6 @@
 // console.log('Practice');
 
-obj = {
+let obj = {
     x: 10,
     y: 20,
     inner: {
@@ -31,9 +31,9 @@ obj = {
 
 innerPriority = true;
 
-for(key in obj){
+for(const key in obj){
     if (typeof obj[key] == 'object') {
-        for(innerKey in obj[key]){
+        for(const innerKey in obj[key]){
             if(innerPriority == false && obj.hasOwnProperty(innerKey)) {
                 continue;
             }

@@ -58,13 +58,13 @@ for(i = 0; i < array.length; i++) {
 
 
 
-n = 5;
-m = 5;
+const n = 5;
+const m = 5;
 
-A = new Array(n);
+let A = new Array(n);
 
-for(i = 0; i < A.length; i++){
-    A[i]= new Array(m);
+for(let i = 0; i < A.length; i++){
+    A[i] = new Array(m);
     for(j = 0; j < A[i].length; j++) {
         A[i][j] = Math.floor(Math.random()*20 - 10);
     }
@@ -73,10 +73,10 @@ for(i = 0; i < A.length; i++){
 // console.log(A);
 
 // --------------------------------------------
-max = A[0][0];
+let max = A[0][0];
 
-for(i = 0; i < A.length; i++) {
-    for(j = 0; j < A[i].length; j++) {
+for(let i = 0; i < A.length; i++) {
+    for(let j = 0; j < A[i].length; j++) {
         if (A[i][j] > max) {
             max = A[i][j];
         }
@@ -157,16 +157,16 @@ for(i = 1; i <= n; i++) {
 
 
 
-// n = 10;
-// m = 15;
-// document.write('<br />')
-// for(i = 1; i <= n; i++) {
-//     for(j = 1; j <= m; j++) {
-//         if (i == 1 || j == 1 || i == n || j == m || j == 7) {
-//             document.write('*')
-//         } else {
-//             document.write('&nbsp;')
-//         }
-//     }
-//     document.write('<br />')
-// }
+const n = 10;
+const m = 15;
+document.write('<br />')
+for(let i = 1; i <= n; i++) {
+    for(let j = 1; j <= m; j++) {
+        if (i == 1 || j == 1 || i == n || j == m || j == 7) {
+            document.write('*')
+        } else {
+            document.write('&nbsp;')
+        }
+    }
+    document.write('<br />')
+}
