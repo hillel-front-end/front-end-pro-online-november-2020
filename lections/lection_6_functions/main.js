@@ -96,7 +96,7 @@ renderArray(B);
 function fact(n) {
     var res = 1;
 
-    for(let i = 1; i <= n; i = i + 1) {
+    for(let i = 1; i <= n; i++) {
         res = res * i;
     }
     console.log(i); // n + 1
