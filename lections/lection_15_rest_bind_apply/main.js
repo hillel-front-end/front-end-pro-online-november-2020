@@ -35,6 +35,13 @@ class Button {
             return element instanceof Button;
         });
     }
+
+    static addClass(btn, className) {
+        if (!className || btn.disabled) {
+            return;
+        }
+        btn.classList.add(className);
+    }
 }
 
 window.addEventListener('load', () => {
@@ -50,7 +57,8 @@ window.addEventListener('load', () => {
             if (counter >= 5) {
                 this.destroy();
             }
-
+            
+            Button.addClass(this, 'clicked')
             counter++;
         }
     });
@@ -59,7 +67,10 @@ window.addEventListener('load', () => {
 
     const button2 = new Button({
         selector: '#button2',
-        onClick: () => console.log('button2'),
+        onClick: () => { 
+            console.log('button2');
+            Button.addClass(this, 'clicked-twice')
+        },
         content: 'Button Super'
     });
 })
