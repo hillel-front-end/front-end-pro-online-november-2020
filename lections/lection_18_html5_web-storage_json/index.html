@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body>
+
+    Clicks counter: <span id="clicks"></span>
+    <hr>
+    Clicks session counter: <span id="clicks_session"></span>
+    <hr>
+    <table>
+        <tr>
+            <td><button class="increase_button" data-id="click_me_1" data-step="1">Increase 1</button></td>
+            <td><button class="increase_button" data-id="click_me_2" data-step="3">Increase 2</button> </td>
+            <td><button class="increase_button" data-id="click_me_3" data-step="7">Increase 3</button></td>
+        </tr>
+        <tr>
+            <td><span class="increase_text" data-id="click_me_1"></span></td>
+            <td><span class="increase_text" data-id="click_me_2"></span> </td>
+            <td><span class="increase_text" data-id="click_me_3"></span></td>
+        </tr>
+    </table>
+</body>
+</html>
