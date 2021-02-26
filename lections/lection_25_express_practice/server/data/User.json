@@ -1,0 +1,13 @@
+{
+	"name": "sgsgdg",
+	"age": 123,
+	"x": {
+		"y": 20
+	},
+	"vasya": true,
+	"value": [
+		1,
+		2,
+		3
+	]
+}
