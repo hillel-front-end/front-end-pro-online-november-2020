@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcEmqQlWKRweNJB7P997hOB4gj_eeni4Q&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script src="./client.js"></script>
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Hello
+    </h1>
+    <div id="map"></div>
+    <br>
+    <input id="search_field" type="text">
+    <select id="search_select">
+        <option value="current" selected>Current weather</option>
+        <option value="forecast">Forecast</option>
+    </select>
+    <button id="search_action">Search</button>
+    <br>
+    <table id="forecast" border="2"></table>
+    <br>
+    <pre id="currentWeather"></pre>
+</body>
+</html>
