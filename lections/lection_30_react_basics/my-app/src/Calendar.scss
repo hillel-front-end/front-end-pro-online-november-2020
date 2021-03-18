@@ -1,0 +1,22 @@
+.calendar {
+    .calendar__day {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        padding: 5px;
+        border: 1px solid black;
+
+        &--weekend {
+            background: gray;
+        }
+    }
+}
+
+
+/*100*/
+
+
+
+[theme="Dark"] .calendar {
+    background: gray;
+}
