@@ -20,19 +20,20 @@ for (let i = 1; i <= 30; i++) {
 // console.error(days); // [1, 2, 3, 4]
 // console.error(days); // [4]
 // console.error(days); // [5, 5, 5, 5]
-
+const getRand = () => {
+    return Math.floor(Math.random()*256);
+};
 function getRandomColor() {
     const colors = [
         getRand(),
         getRand(),
         getRand()
-    ]
+    ];
+
     return `rgb(${colors})`;
 }
 
-function getRand() {
-    return Math.floor(Math.random()*256);
-}
+
 
 const Day = (props) => {
     const {dayNumber, className} = props;

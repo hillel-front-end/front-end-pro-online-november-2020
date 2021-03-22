@@ -20,6 +20,10 @@ class Counter extends React.Component {
         this.setState({counter: this.state.counter - 1});
     }
 
+    getRand(max){
+        return Math.floor(Math.random()*max);
+    }
+
     render() {
         const {onPlus, onMinus, counter} = this.props;
         // const {counter} = this.state;
