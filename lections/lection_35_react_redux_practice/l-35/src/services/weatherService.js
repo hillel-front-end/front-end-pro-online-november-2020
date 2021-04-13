@@ -1,0 +1,11 @@
+const API_KEY = '***'; // Not commit to repo
+
+export const loadWeatherByCityName = cityName => {
+    return fetch(`http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric&q=${cityName}`)
+        .then(resp => resp.json());
+}
+
+export const loadWeather5DaysByCityName = cityName => {
+    return fetch(`http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&units=metric&q=${cityName}`)
+        .then(resp => resp.json());
+}
