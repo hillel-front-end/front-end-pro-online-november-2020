@@ -5,8 +5,8 @@ export const Tr = ({children}) => {
     return <tr>{children}</tr>
 }
 
-export const Td = ({children}) => {
-    return <td className="cell">{children}</td>
+export const Td = ({children, className}) => {
+    return <td className={`cell ${className || ''}`}>{children}</td>
 }
 
 export const Th = ({column, onClick}) => {

@@ -1,30 +1,37 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {loadWeatherByCityName} from '../services/weatherService';
 import {
     Link
   } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
 // functional component
 export default function CityPicker(props) {
-    const [weather, setWeather] = useState(null);
-    const [value, setValue] = useState('');
-
-    // vanilla js
-    // const cityPicker = document.querySelector('.city-picker');
-
-    // react way - refs
+    const currentWeather = useSelector(state => state.weather.current);
+    const [value, setValue] = useState(props.myCities[0]);
+    const dispatch = useDispatch();
     const cityPicker = useRef();
 
-    const onChange = event => {
-        loadWeatherByCityName(event.target.value)
+    const loadWeather = (cityName) => {
+        loadWeatherByCityName(cityName)
             .then((weather) => {
-                setWeather(weather.main);
-
-                if (props.cityChanged) {
-                    props.cityChanged(weather);
-                }
+                document.title = `Our weather in ${weather.name}!`;
+                dispatch({
+                    type: 'set_current_weather',
+                    weatherFromAPI: weather
+                });
             });
-        
+    }
+
+    useEffect(() => {
+        if (!currentWeather) {
+            loadWeather(props.myCities[0]);
+        }
+    });
+
+
+    const onChange = event => {
+        loadWeather(event.target.value);
         setValue(event.target.value);
         cityPicker.current.classList.add('TEST');
     };
@@ -39,10 +46,10 @@ export default function CityPicker(props) {
                     {props.myCities.map((item, index) => <option key={`id-${index}`} value={item}>{item}</option>)}
                 </select>
             </div>
-            {weather && (
+            {currentWeather && currentWeather.main && (
                 <div>
                     <h3>Short info</h3>
-                    Temp: {weather.temp}, Feels like: {weather.feels_like}
+                    Temp: {currentWeather.main.temp}, Feels like: {currentWeather.main.feels_like}
                     <br />
                     <h3>Details</h3>
                     <Link to={`/city-details/${value}`}>Go to details</Link>

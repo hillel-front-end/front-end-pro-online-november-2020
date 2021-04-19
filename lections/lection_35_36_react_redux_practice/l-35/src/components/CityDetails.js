@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import {loadWeatherByCityName} from '../services/weatherService';
+import { useDispatch, useSelector } from 'react-redux';
 
 // functional component
-export default function CityDetails(props) {
+export default function CityDetails() {
     const routeParams = useParams();
-    const [weather, setWeather] = useState(null);
+    const currentWeather = useSelector(state => state.weather.current);
+    const dispatch = useDispatch();
     
     useEffect(() => {
         // componentDidMount
-        if (props.currentWeather) {
-            setWeather(props.currentWeather);
-        } else {
+        if (!currentWeather) {
             loadWeatherByCityName(routeParams.city)
                 .then(weather => {
-                    setWeather(weather);
+                    dispatch({
+                        type: 'set_current_weather',
+                        weatherFromAPI: weather
+                    });
                 });
         }
-    }, [routeParams]);
+    }, [routeParams, dispatch, currentWeather]);
 
 
     const getOnClickHandler = id => () => console.log(id);
@@ -27,10 +30,10 @@ export default function CityDetails(props) {
             <h2>City Details</h2>
             Current city - {routeParams.city}
             <br />
-            {weather && (
+            {currentWeather && (
                 <table border="2">
                     <tbody>
-                        {Object.entries(weather).map(([key, value], index) => (
+                        {Object.entries(currentWeather).map(([key, value], index) => (
                             <tr data-key={`id-${index}`} key={`id-${index}`} onClick={getOnClickHandler(value)}>
                                 <td>{key}</td>
                                 <td>{JSON.stringify(value)}</td>

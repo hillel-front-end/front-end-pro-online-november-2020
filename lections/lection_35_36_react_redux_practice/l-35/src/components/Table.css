@@ -11,6 +11,10 @@
     background: #ccc;
 }
 
+.table .cell.selected {
+    background-color: cadetblue;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
