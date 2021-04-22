@@ -11,6 +11,8 @@ import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import TotalWeatherData from './components/TotalWeatherData';
 import ForecastFiveDays from './components/ForecastFiveDays';
+import { Button, ButtonGroup } from '@material-ui/core';
+import { PowerTwoTone } from '@material-ui/icons';
 
 function App(props) {
   const cities = ['London', 'Kyiv', 'Odesa', 'Dnipro'];
@@ -31,6 +33,11 @@ function App(props) {
             ) }
           </ul>
         </nav>
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button endIcon={<PowerTwoTone />}>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
+        </ButtonGroup>
 
         <Switch>
           <Route path="/city-details-5-days/:city">
